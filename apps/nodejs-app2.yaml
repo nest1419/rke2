@@ -4,15 +4,15 @@ metadata:
   name: nodejs-app2
   namespace: argocd
 spec:
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
   project: default
   source:
     repoURL: https://github.com/nest1419/rke2.git
     targetRevision: main
-    path: app/k8s2
+    path: app2/k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
+      prune: true
